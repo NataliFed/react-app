@@ -8,6 +8,8 @@ const NotesList = ({ notes }) => {
     <div
       css={css`
         display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
       `}
     >
       {notes.map((note) => (
