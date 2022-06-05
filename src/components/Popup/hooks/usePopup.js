@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const usePopup = () => {
+const usePopup = (isClosePopup) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isRender, setIsRender] = useState(false);
+
+  useEffect(() => {
+    if (isClosePopup) {
+      onClose();
+    }
+  }, [isClosePopup]);
 
   const onOpen = () => {
     setIsOpen(true);

@@ -1,16 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { useEffect } from "react";
 import usePopup from "../hooks/usePopup";
 
 function Popup(ContentComponent, children, isClosePopup) {
-  const { isOpen, isRender, onClose, onOpen } = usePopup();
-
-  useEffect(() => {
-    if (isClosePopup) {
-      onClose();
-    }
-  }, [isClosePopup]);
+  const { isOpen, isRender, onClose, onOpen } = usePopup(isClosePopup);
 
   return (
     <div>
