@@ -1,5 +1,5 @@
 import { useState } from "react";
-import notes from "../../../notes.json";
+import dataNotes from "../../../notes.json";
 import { useStorage } from "../../../shared";
 
 const useNoteManager = () => {
@@ -8,7 +8,7 @@ const useNoteManager = () => {
   if (!getJsonItem("notes")) {
     setJsonItem("notes", dataNotes);
   }
-  const [dataNotes, setNotes] = useState(getJsonItem("notes"));
+  const [notes, setNotes] = useState(getJsonItem("notes"));
   const [isClosePopup, setIsClosePopup] = useState(false);
 
   const addNote = (event) => {
@@ -24,7 +24,7 @@ const useNoteManager = () => {
       description: event.target.description.value,
     };
 
-    const newNotes = [...dataNotes, note];
+    const newNotes = [...notes, note];
 
     setJsonItem("notes", newNotes);
 

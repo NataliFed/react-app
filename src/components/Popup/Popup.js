@@ -1,8 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import usePopup from "../hooks/usePopup";
+import PopupCard from "./components/PopupCard";
+import usePopup from "./hooks/usePopup";
 
-function Popup(ContentComponent, children, isClosePopup) {
+function Popup({ title, buttonName, children, isClosePopup }) {
   const { isOpen, isRender, onClose, onOpen } = usePopup(isClosePopup);
 
   return (
@@ -20,11 +21,12 @@ function Popup(ContentComponent, children, isClosePopup) {
           cursor: pointer;
         `}
       >
-        Add new note
+        {buttonName}
       </button>
       {isRender && (
         <div
           css={css`
+            position: absolute;
             width: 100%;
             height: 100%;
             left: 0;
@@ -39,12 +41,8 @@ function Popup(ContentComponent, children, isClosePopup) {
             opacity: ${isOpen ? "1" : "0"};
           `}
         >
-          <div
-            css={css`
-              max-width: 300px;
-              position: relative;
-            `}
-          >
+          <PopupCard isOpen={isOpen}>
+          
             <span
               onClick={onClose}
               css={css`
@@ -58,10 +56,10 @@ function Popup(ContentComponent, children, isClosePopup) {
             >
               X
             </span>
-            <ContentComponent onClose={onClose} />
             {children}
-          </div>
+          </PopupCard>
         </div>
+        
       )}
     </div>
   );

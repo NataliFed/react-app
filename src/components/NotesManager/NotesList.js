@@ -10,10 +10,14 @@ const NotesList = ({ notes }) => {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+
+        @media (max-width: 768px) {
+          justify-content: center;
+        }
       `}
     >
-      {notes.map((note) => (
-        <NoteItem key={note.id} note={note} />
+      {notes.map((item) => (
+        <NoteItem key={item.id} data={item} />
       ))}
     </div>
   );

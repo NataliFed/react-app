@@ -4,12 +4,6 @@ const usePopup = (isClosePopup) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isRender, setIsRender] = useState(false);
 
-  useEffect(() => {
-    if (isClosePopup) {
-      onClose();
-    }
-  }, [isClosePopup]);
-
   const onOpen = () => {
     setIsOpen(true);
 
@@ -25,11 +19,19 @@ const usePopup = (isClosePopup) => {
     }, 800);
   };
 
+  useEffect(() => {
+    if (isClosePopup) {
+      onClose();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+
+  }, [isClosePopup]);
+
   return {
-      isOpen,
-      isRender,
-      onClose,
-      onOpen,
+    isOpen,
+    onOpen,
+    onClose,
+    isRender,
   }
 };
 

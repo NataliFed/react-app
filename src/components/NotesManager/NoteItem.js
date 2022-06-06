@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-const NoteItem = ({ note: { name, date, description } }) => (
+const NoteItem = ({ data: { name, date, description } }) => (
   <div
     css={css`
       width: 200px;
@@ -18,7 +18,7 @@ const NoteItem = ({ note: { name, date, description } }) => (
       }
     `}
   >
-    <p>{name}</p>
+    <h3>{name}</h3>
     <p>{date}</p>
     <div>{description}</div>
   </div>

@@ -1,19 +1,14 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
+import ResetCss from "./components/ResetCss";
+import Page from "./components/Page";
 import NotesManager from "./components/NotesManager";
-import Popup from "./components/Popup/components/Popup";
-import NewNotes from "./components/Popup/components/NewNotes";
+
 
 function App() {
   return (
-    <div
-      css={css`
-        max-width: 1200px;
-        margin: auto;
-      `}
-    >
+    <Page>
+      <ResetCss />
       <NotesManager />
-    </div>
+    </Page>
   );
 }
 
