@@ -18,7 +18,7 @@ const useNoteManager = () => {
       return "_" + Math.random().toString(36).substr(2, 9);
     };
 
-    let date = new Date(year, month[day]);
+    let date = new Date();
 
     const note = {
       id: id(),

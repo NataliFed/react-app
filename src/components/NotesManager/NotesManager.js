@@ -1,11 +1,11 @@
-import NewNotes from "../Popup/components/NewNotes";
+import NewNotes from "./components/NewNotes";
 import Popup from "../Popup";
 import useNoteManager from "./hooks/useNoteManager";
-import NotesList from "./NotesList";
+import NotesList from "./components/NotesList";
 
 const NotesManager = () => {
   const { notes, addNote, isClosePopup } = useNoteManager();
-  console.log('notes manager')
+  console.log(notes)
   return (
     <div>
       <Popup buttonName="Add new note" isClosePopup={isClosePopup}>
