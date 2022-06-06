@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 import PopupCard from "./components/PopupCard";
 import usePopup from "./hooks/usePopup";
 
-function Popup({ title, buttonName, children, isClosePopup }) {
+function Popup({ name, buttonName, children, isClosePopup }) {
   const { isOpen, isRender, onClose, onOpen } = usePopup(isClosePopup);
 
   return (
@@ -42,7 +42,13 @@ function Popup({ title, buttonName, children, isClosePopup }) {
           `}
         >
           <PopupCard isOpen={isOpen}>
-          
+            <h2
+                css={css`
+                  margin: 0;
+                `}
+              >
+                {name}
+            </h2>
             <span
               onClick={onClose}
               css={css`
